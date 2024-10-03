@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #0062cc;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 1.8rem;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: #004085;
+        }
+
+        /* Formulário de Cadastro */
+        form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 40px auto;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #6c757d;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        button {
+            width: 100%;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        p {
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0062cc;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Consultas Médicas Online</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Início</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'sobre' %}">Sobre Nós</a></li>
+                <li><a href="{% url 'register' %}">Cadastro</a></li>
+                <li><a href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form method="post">
+        <h2>Cadastro</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Registrar</button>
+        <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login</a></p>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 Consultas Médicas Online. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
