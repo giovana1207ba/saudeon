@@ -58,7 +58,7 @@ class Consulta(models.Model):
         verbose_name_plural = "Consultas"
     
     def __str__(self):
-        return self.user
+        return f'{self.user}'
 
 
 

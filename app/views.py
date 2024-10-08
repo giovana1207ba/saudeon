@@ -17,6 +17,12 @@ class ConsultaView(CreateView):
     template_name = 'consulta.html'
     success_url = reverse_lazy('index')  # Redirecionar para uma página de sucesso após a criação
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['postos'] = Posto.objects.all()  # Adicionando os postos ao contexto
+        context['medicos'] = Medico.objects.all()  # Adicionando os médicos ao contexto
+        return context
+
     def form_valid(self, form):
         form.instance.user = self.request.user  # Atribui o usuário logado à consulta
         return super().form_valid(form)
