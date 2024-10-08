@@ -17,3 +17,14 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(max_length=150, required=True, label='Nome de Usuário')
     password = forms.CharField(widget=forms.PasswordInput, required=True, label='Senha')
+
+
+class ConsultaForm(forms.ModelForm):
+    class Meta:
+        model = Consulta
+        fields = ['posto', 'medico', 'data', 'hora', 'observacao']
+        widgets = {
+            'data': forms.DateInput(attrs={'type': 'date'}),
+            'hora': forms.TimeInput(attrs={'type': 'time'}),
+            'observacao': forms.Textarea(attrs={'rows': 4}),
+        }
