@@ -1,0 +1,3 @@
+app/static/*
+config/settings.py
+.venv
