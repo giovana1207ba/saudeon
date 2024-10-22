@@ -6,8 +6,8 @@ from .models import *
 
 class CustomUser(AbstractUser):
     telefone = models.CharField(max_length=15, blank=True, null=True)
-    cpf = models.CharField(max_length=11, unique=True, blank=False, null=False)
-    numero_sus = models.CharField(max_length=15, unique=True, blank=False, null=False)
+    cpf = models.CharField(max_length=11, unique=True, blank=False, null=True)
+    numero_sus = models.CharField(max_length=15, unique=True, blank=False, null=True)
     data_nascimento = models.DateField(blank=True, null=True)
 
     class Meta:

@@ -28,11 +28,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid #004085;
         }
 
         header .logo h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
         header nav ul {
@@ -46,12 +48,13 @@
             text-decoration: none;
             font-weight: bold;
             padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            border-radius: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
         }
 
         header nav ul li a:hover {
             background-color: #004085;
+            transform: scale(1.05);
         }
 
         /* Conteúdo Principal */

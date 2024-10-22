@@ -22,36 +22,44 @@
         }
 
         header {
-            background: #004d99;
-            color: #fff;
+            background-color: #0062cc;
+            color: white;
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid #004085;
         }
 
         header .logo h1 {
-            margin: 0;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
         header nav ul {
             list-style: none;
             display: flex;
-        }
-
-        header nav ul li {
-            margin-left: 1rem;
+            gap: 20px;
         }
 
         header nav ul li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: #004085;
+            transform: scale(1.05);
         }
 
         .hero {
             background: url('hero-bg.jpg') no-repeat center center/cover;
-            color: #fff;
+            color: #7eb5f5;
             text-align: center;
             padding: 4rem 2rem;
         }
